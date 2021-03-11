@@ -43,9 +43,9 @@ Vite provides you with many useful features, such as: `TypeScript`, `TSX/JSX`, `
 - Code formatting rules follow the latest TypeScript recommendations and best practices thanks to [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin).
 
 
-### Vue [![Vue version](https://img.shields.io/github/package-json/dependency-version/luffynando/vite-electron-builder/legacy-vue2/vue?label=%20)][vue]
-- By default, web pages are built using the latest version of the [Vue]. However, there are no problems with using any other frameworks or technologies.
-- Also, by default, the [vue-router] version [![Vue-router version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/vue-router?label=%20)][vue-router] is included.
+### Vue [![Vue version](https://img.shields.io/github/package-json/dependency-version/luffynando/vite-electron-builder/vue/legacy-vue2?label=%20)][vue]
+- By default, web pages are built using the lts of the [Vue]. However, there are no problems with using any other frameworks or technologies.
+- Also, by default, the [vue-router] version [![Vue-router version](https://img.shields.io/github/package-json/dependency-version/luffynando/vite-electron-builder/dev/vue-router/legacy-vue2?label=%20)][vue-router] is included.
 - Code formatting rules follow the latest Vue recommendations and best practices thanks to [eslint-plugin-vue].
 - Installed [Vue.js devtools beta](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg) with Vue 3 support.
 
