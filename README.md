@@ -43,7 +43,7 @@ Vite provides you with many useful features, such as: `TypeScript`, `TSX/JSX`, `
 - Code formatting rules follow the latest TypeScript recommendations and best practices thanks to [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin).
 
 
-### Vue [![Vue version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/vue?label=%20)][vue]
+### Vue [![Vue version](https://img.shields.io/github/package-json/dependency-version/luffynando/vite-electron-builder/legacy-vue2/vue?label=%20)][vue]
 - By default, web pages are built using the latest version of the [Vue]. However, there are no problems with using any other frameworks or technologies.
 - Also, by default, the [vue-router] version [![Vue-router version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/vue-router?label=%20)][vue-router] is included.
 - Code formatting rules follow the latest Vue recommendations and best practices thanks to [eslint-plugin-vue].
@@ -185,8 +185,8 @@ This project requires Node 14 or later.
 [vite]: https://vitejs.dev/
 [electron]: https://electronjs.org/
 [electron-builder]: https://www.electron.build/
-[vue]: https://v3.vuejs.org/
-[vue-router]: https://github.com/vuejs/vue-router-next/
+[vue]: https://vuejs.org/
+[vue-router]: https://router.vuejs.org/
 [typescript]: https://www.typescriptlang.org/
 [spectron]: https://www.electronjs.org/spectron/
 [@vuedx/typecheck]: https://github.com/znck/vue-developer-experience/tree/master/packages/typecheck
