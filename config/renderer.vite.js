@@ -1,6 +1,6 @@
 const {join} = require('path');
-const vue = require('@vitejs/plugin-vue');
-const {chrome} = require('./electron-dep-versions');
+const { createVuePlugin } = require('vite-plugin-vue2');
+const {chrome} = require('./electron-vendors');
 /**
  * @type {import('vite').UserConfig}
  * @see https://vitejs.dev/config/
@@ -12,7 +12,7 @@ module.exports = {
       '/@/': join(process.cwd(), './src/renderer') + '/',
     },
   },
-  plugins: [vue()],
+  plugins: [createVuePlugin({})],
   base: '',
   build: {
     target: `chrome${chrome}`,

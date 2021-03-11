@@ -5,7 +5,7 @@ module.exports = {
   },
   extends: [
     /** @see https://eslint.vuejs.org/rules/ */
-    'plugin:vue/vue3-recommended',
+    'plugin:vue/recommended',
   ],
   parserOptions: {
     parser: '@typescript-eslint/parser',
