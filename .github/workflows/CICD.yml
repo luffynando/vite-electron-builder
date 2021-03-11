@@ -22,25 +22,7 @@ defaults:
     shell: 'bash'
 
 jobs:
-  skip-ci-check:
-    runs-on: ubuntu-latest
-    outputs:
-      skip: ${{ steps.ci-skip-step.outputs.ci-skip }}
-      skip-not: ${{ steps.ci-skip-step.outputs.ci-skip-not }}
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - id: ci-skip-step
-        uses: mstachniuk/ci-skip@master
-        with:
-          commit-filter: '[ci skip];[skip ci]'
-          commit-filter-separator: ';'
-
   lint:
-    needs: skip-ci-check
-    if: ${{ needs.skip-ci-check.outputs.skip == 'false' }}
-
     runs-on: ubuntu-latest
 
     steps:
@@ -51,26 +33,9 @@ jobs:
 
       # TODO: Install not all dependencies, but only those required for this workflow
       - run: npm ci
-
-      - uses: haya14busa/action-cond@v1
-        id: reporter
-        with:
-          cond: ${{ github.event_name == 'pull_request' }}
-          if_true: "github-pr-review"
-          if_false: "github-check"
-
-      - name: Run ESLint
-        uses: reviewdog/action-eslint@v1
-        with:
-          fail_on_error: true
-          github_token: ${{ secrets.github_token }}
-          eslint_flags: '. --ext js,ts,vue'
-          reporter: ${{ steps.reporter.outputs.value }}
+      - run: npm run lint
 
   typechecking:
-    needs: skip-ci-check
-    if: ${{ needs.skip-ci-check.outputs.skip == 'false' }}
-
     runs-on: ubuntu-latest
 
     steps:
@@ -82,29 +47,14 @@ jobs:
       # TODO: Install not all dependencies, but only those required for this workflow
       - run: npm ci
 
-      - uses: haya14busa/action-cond@v1
-        id: reporter
-        with:
-          cond: ${{ github.event_name == 'pull_request' }}
-          if_true: "github-pr-review"
-          if_false: "github-check"
+      - run: npm run buildEnvTypes
 
-      - uses: reviewdog/action-setup@v1
-
-      - run: npx --no-install @vuedx/vuedx-typecheck ./src/main --rdjson  | reviewdog -name vuedx-typecheck -f rdjson -fail-on-error -reporter=${{ steps.reporter.outputs.value }}
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.github_token }}
-      - run: npx --no-install @vuedx/vuedx-typecheck ./src/preload --rdjson  | reviewdog -name vuedx-typecheck -f rdjson -fail-on-error -reporter=${{ steps.reporter.outputs.value }}
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.github_token }}
-      - run: npx --no-install @vuedx/vuedx-typecheck ./src/renderer --rdjson  | reviewdog -name vuedx-typecheck -f rdjson -fail-on-error -reporter=${{ steps.reporter.outputs.value }}
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.github_token }}
+      # Type checking is divided into three separate commands for more convenient logs
+      - run: npm run typecheck-main
+      - run: npm run typecheck-preload
+      - run: npm run typecheck-renderer
 
   test:
-    needs: skip-ci-check
-    if: ${{ needs.skip-ci-check.outputs.skip == 'false' }}
-
     strategy:
       matrix:
         os: [ windows-latest ]

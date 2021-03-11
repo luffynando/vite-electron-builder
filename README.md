@@ -10,6 +10,8 @@ By default, the **Vue framework** is used for the interface, but you can easily 
 
 > Vite is framework agnostic
 
+## Please note:
+**If you are interested in using this template, please note this discussion: [Discussion on Rethinking File Structure](https://github.com/cawa-93/vite-electron-builder/discussions/150)**
 
 
 ## Support
@@ -18,6 +20,9 @@ This template maintained by [Alex Kozack][cawa-93-github]. You can [💖 sponsor
 If you have ideas, questions or suggestions - **Welcome to [discussions](https://github.com/cawa-93/vite-electron-builder/discussions)**. 😊
 
 
+## Recommended requirements
+- **Node**: >=14.16
+- **npm**: >7.6
 
 ## Features
 
@@ -36,16 +41,18 @@ Vite provides you with many useful features, such as: `TypeScript`, `TSX/JSX`, `
 [See all Vite features](https://vitejs.dev/guide/features.html).
 
 
-### TypeScript [![TypeScript version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/dev/typescript?label=%20)][typescript]
+### TypeScript [![TypeScript version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/dev/typescript?label=%20) ][typescript] (optional)
 - The Latest TypeScript is used for all source code. 
 - **Vite** supports TypeScript out of the box. However, it does not support type checking.
 - Type checking is performed in both `.ts` and `.vue` files thanks to [@vuedx/typecheck].
 - Code formatting rules follow the latest TypeScript recommendations and best practices thanks to [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin).
 
+**Note**: If you do not need a TypeScript, you can easily abandon it. To do this, You do not need to make any bundler configuration changes, etc. Just replace all `.ts` files with `.js` files. Additionally, it will be useful to delete TS-specific files, plug-ins and dependencies like `tsconfig.json`, `@typescript-eslint/*`, etc.
 
-### Vue [![Vue version](https://img.shields.io/github/package-json/dependency-version/luffynando/vite-electron-builder/vue/legacy-vue2?label=%20)][vue]
-- By default, web pages are built using the lts of the [Vue]. However, there are no problems with using any other frameworks or technologies.
-- Also, by default, the [vue-router] version [![Vue-router version](https://img.shields.io/github/package-json/dependency-version/luffynando/vite-electron-builder/dev/vue-router/legacy-vue2?label=%20)][vue-router] is included.
+
+### Vue [![Vue version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/vue?label=%20)][vue] (optional)
+- By default, web pages are built using the latest version of the [Vue]. However, there are no problems with using any other frameworks or technologies.
+- Also, by default, the [vue-router] version [![Vue-router version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/vue-router?label=%20)][vue-router] is included.
 - Code formatting rules follow the latest Vue recommendations and best practices thanks to [eslint-plugin-vue].
 - Installed [Vue.js devtools beta](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg) with Vue 3 support.
 
@@ -172,7 +179,7 @@ When running building, environment variables are loaded from the following files
 
 
 ### Development Setup
-This project requires Node 14 or later.
+This project was tested on Node 14.
 1. Fork this repository
 1. Run `npm install` to install all dependencies
 1. Build compile app for production — `npm run compile`
@@ -185,8 +192,8 @@ This project requires Node 14 or later.
 [vite]: https://vitejs.dev/
 [electron]: https://electronjs.org/
 [electron-builder]: https://www.electron.build/
-[vue]: https://vuejs.org/
-[vue-router]: https://router.vuejs.org/
+[vue]: https://v3.vuejs.org/
+[vue-router]: https://github.com/vuejs/vue-router-next/
 [typescript]: https://www.typescriptlang.org/
 [spectron]: https://www.electronjs.org/spectron/
 [@vuedx/typecheck]: https://github.com/znck/vue-developer-experience/tree/master/packages/typecheck

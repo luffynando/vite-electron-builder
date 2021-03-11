@@ -1,5 +1,5 @@
+const {chrome} = require('./electron-vendors');
 const {join} = require('path');
-const {chrome} = require('./electron-dep-versions');
 
 /**
  * @type {import('vite').UserConfig}
@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   build: {
+    sourcemap: 'inline',
     target: `chrome${chrome}`,
     outDir: 'dist/source/preload',
     assetsDir: '.',
